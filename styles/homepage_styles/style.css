@@ -7,18 +7,24 @@
 :root {
   --white-clr: white;
   --black-clr: black;
+  --primary: 204 98% 38%;
   --primary-clr: #0274c0;
   --secondary: 224 52% 15%;
   --neon-blue: #00aeff;
   --muted: #1c1c1c;
   --grey-text-clr: hsl(0 0% 40%);
   --dark-primary-gradient: linear-gradient(180deg, rgba(2, 116, 192, 0), #0274c0), linear-gradient(0deg, rgba(2, 116, 192, 0.2), rgba(2, 116, 192, 0.2)), linear-gradient(0deg, #050505, #050505), linear-gradient(0deg, rgba(241, 241, 241, 0.5), rgba(241, 241, 241, 0.5));
+  --primary-gradient: linear-gradient(0deg, hsl(var(--primary)), hsl(var(--primary))), linear-gradient(270deg, rgba(2, 116, 192, 0) 0%, hsl(var(--primary)) 100%);
 }
 
 @font-face {
   font-family: "manrope";
   src: url("../assets/Manrope/static/Manrope-Regular.ttf");
 }
+body {
+  background-color: var(--black-clr);
+}
+
 .container {
   width: 100%;
   height: 100dvh;
@@ -87,34 +93,6 @@
 .container .center-text .button-div button:nth-of-type(2):hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
-.container .schedule_button_div {
-  position: absolute;
-  bottom: 0px;
-  background-color: var(--primary-clr);
-  color: var(--white-clr);
-  width: 100%;
-  padding-block: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 2rem;
-}
-.container .schedule_button_div span {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 1.5rem;
-  font-family: "manrope", sans-serif;
-}
-.container .schedule_button_div button {
-  color: var(--primary-clr);
-  background-color: var(--white-clr);
-  border-radius: 9999px;
-  font-size: 1rem;
-  padding: 1rem 1.8rem;
-  border: none;
-}
 @media (max-width: 900px) {
   .container .center-text {
     top: 10rem;
@@ -138,30 +116,59 @@
   .container .center-text .button-div button:nth-of-type(2) {
     width: 80%;
   }
-  .container .schedule_button_div {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .container .schedule_button_div span {
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .container .schedule_button_div button {
-    width: 85%;
-  }
 }
 @media (max-width: 500px) {
   .container .center-text h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   .container .center-text p {
     font-size: 1rem;
     font-weight: 100;
+    line-height: 1.5;
   }
-  .container .schedule_button_div span {
-    bottom: 0;
+}
+
+.schedule_button_div {
+  background-color: var(--primary-clr);
+  color: var(--white-clr);
+  width: 100%;
+  padding-block: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+}
+.schedule_button_div span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  font-family: "manrope", sans-serif;
+}
+.schedule_button_div button {
+  color: var(--primary-clr);
+  background-color: var(--white-clr);
+  border-radius: 9999px;
+  font-size: 1rem;
+  padding: 1rem 1.8rem;
+  border: none;
+}
+@media (max-width: 900px) {
+  .schedule_button_div {
+    flex-direction: column;
+    gap: 1rem;
     padding-inline: 2rem;
+  }
+  .schedule_button_div span {
+    text-wrap: balance;
+    font-size: 2rem;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .schedule_button_div button {
+    width: 100%;
   }
 }
 
@@ -223,7 +230,7 @@ nav .nav-icon {
 }
 @media (max-width: 900px) {
   nav img {
-    width: 10%;
+    width: 100px;
   }
   nav > div {
     display: none;
@@ -379,6 +386,10 @@ nav .nav-icon {
   .roof-benefits-section .heading h1 {
     font-size: 2rem;
   }
+  .roof-benefits-section .heading p:nth-of-type(2) {
+    text-wrap: balance;
+    font-size: 1.2rem;
+  }
   .roof-benefits-section .grid-card-container {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -392,167 +403,178 @@ nav .nav-icon {
   .roof-benefits-section .grid-card-container .card {
     padding: 2rem 3rem 2rem 2rem;
   }
+  .roof-benefits-section .grid-card-container .card .head {
+    margin-bottom: 1.5rem;
+  }
+  .roof-benefits-section .grid-card-container .card p {
+    font-size: 1.2rem;
+    font-weight: 100;
+  }
   .roof-benefits-section .bullets {
+    padding-block: 2rem;
     display: flex;
   }
 }
 
 .journey-section {
+  height: 90vh;
   font-family: "manrope", sans-serif;
-  padding: 4rem 5rem;
+  padding: 2rem 5rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  background-color: #000;
+  background-color: var(--black-clr);
   color: #fff;
 }
 .journey-section .journey-content {
+  height: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
 }
 .journey-section .journey-content .text-content {
+  height: 100%;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .journey-section .journey-content .text-content .highlight-text {
-  color: #00bfff;
+  color: #0274C0;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 .journey-section .journey-content .text-content h2 {
-  font-size: 2.2rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 .journey-section .journey-content .text-content p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 1rem;
   color: #ccc;
 }
 .journey-section .journey-content .text-content .btn-outline {
   padding: 0.75rem 1.5rem;
-  border: 1px solid #00bfff;
+  border: 1px solid #0274C0;
   background: transparent;
-  color: #00bfff;
+  color: #0274C0;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 9999px;
   transition: 0.3s ease;
+  margin-block: auto 0;
 }
 .journey-section .journey-content .text-content .btn-outline:hover {
-  background-color: #00bfff;
+  background-color: #0274C0;
   color: #000;
 }
 .journey-section .journey-content .image-content {
+  height: 100%;
   flex: 1;
 }
 .journey-section .journey-content .image-content img {
   width: 100%;
+  height: 100%;
   border-radius: 0.75rem;
   object-fit: cover;
 }
-.journey-section .estimate-cta {
-  background: linear-gradient(135deg, #007bff, #00cfff);
-  padding: 2rem;
-  border-radius: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
-}
-.journey-section .estimate-cta .estimate-text {
-  color: #fff;
-}
-.journey-section .estimate-cta .estimate-text h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-.journey-section .estimate-cta .estimate-text p {
-  font-size: 1rem;
-}
-.journey-section .estimate-cta .estimate-form {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-.journey-section .estimate-cta .estimate-form input {
-  padding: 0.75rem 1rem;
-  border-radius: 6px;
-  border: none;
-  outline: none;
-  width: 200px;
-}
-.journey-section .estimate-cta .estimate-form button {
-  padding: 0.75rem 1.25rem;
-  background-color: #000;
-  color: #00f0ff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-.journey-section .estimate-cta .estimate-form button:hover {
-  background-color: #fff;
-  color: #000;
+@media (max-width: 1280px) {
+  .journey-section {
+    height: max-content;
+  }
+  .journey-section .journey-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+  .journey-section .journey-content .text-content {
+    grid-column: 1/2;
+  }
+  .journey-section .journey-content .text-content h2 {
+    font-size: 2rem !important;
+  }
+  .journey-section .journey-content .image-content {
+    grid-column: 2/3;
+  }
 }
 @media (max-width: 900px) {
   .journey-section {
     padding: 2rem 1rem;
   }
-  .journey-section .journey-content {
-    flex-direction: column;
-  }
   .journey-section .journey-content .text-content,
   .journey-section .journey-content .image-content {
     width: 100%;
   }
-  .journey-section .estimate-cta {
-    flex-direction: column;
-    text-align: center;
+}
+@media (max-width: 720px) {
+  .journey-section .journey-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
   }
-  .journey-section .estimate-cta .estimate-form {
-    justify-content: center;
+  .journey-section .journey-content .text-content {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  .journey-section .journey-content .image-content {
+    grid-column: 1/2;
+    grid-row: 2/3;
   }
 }
 
 .estimate-section {
+  border-radius: 16px;
+  overflow: hidden;
+  width: 75%;
+  height: 30vh;
+  margin: 2rem auto;
+  width: 90%;
   font-family: "manrope", sans-serif;
-  background-color: var(--black-clr);
   padding: 2rem 5rem;
+  background: var(--primary-gradient);
+  position: relative;
+}
+.estimate-section img {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
 }
 .estimate-section .estimate-container {
+  padding-inline: 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  color: white;
+  border-radius: 1rem;
+  color: #fff;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   gap: 1rem;
-  padding: 2rem;
-  border-radius: 1rem;
-  color: #fff;
-  background-image: url("../../assets/workpage_images/input-image.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: rgba(2, 116, 192, 0.5568627451);
-  background-blend-mode: multiply;
 }
-.estimate-section .estimate-text {
+.estimate-section .estimate-container .estimate-text {
   flex: 1;
 }
-.estimate-section .estimate-text h3 {
+.estimate-section .estimate-container .estimate-text h3 {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
-.estimate-section .estimate-text p {
+.estimate-section .estimate-container .estimate-text p {
   font-size: 1rem;
   color: #e0e0e0;
 }
-.estimate-section .estimate-form {
+.estimate-section .estimate-container .estimate-form {
   padding: 0.3em;
   background-color: var(--white-clr);
   border-radius: 9999px;
@@ -560,7 +582,7 @@ nav .nav-icon {
   flex-wrap: nowrap;
   gap: 0.5rem;
 }
-.estimate-section .estimate-form input {
+.estimate-section .estimate-container .estimate-form input {
   padding: 0.75rem 1rem;
   border-radius: 999px;
   border: none;
@@ -568,7 +590,7 @@ nav .nav-icon {
   width: 200px;
   font-size: 0.95rem;
 }
-.estimate-section .estimate-form button {
+.estimate-section .estimate-container .estimate-form button {
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
   border: none;
@@ -578,29 +600,32 @@ nav .nav-icon {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.estimate-section .estimate-form button:hover {
+.estimate-section .estimate-container .estimate-form button:hover {
   background-color: #007bff;
   color: #fff;
 }
-@media (max-width: 768px) {
-  .estimate-section {
-    padding: 1rem 1rem;
-  }
+@media (max-width: 968px) {
   .estimate-section .estimate-container {
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding: 5rem 2rem;
+    gap: 0rem;
+    padding: 2rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
-  .estimate-section .estimate-form {
+  .estimate-section .estimate-container .estimate-text h3 {
+    font-size: 2rem;
+  }
+  .estimate-section .estimate-container .estimate-form {
     width: 100%;
   }
-  .estimate-section .estimate-form input {
+  .estimate-section .estimate-container .estimate-form input {
     flex: 1;
     width: 100%;
   }
-  .estimate-section .estimate-form button {
-    width: auto;
+  .estimate-section .estimate-container .estimate-form button {
+    width: max-content;
   }
 }
 
@@ -627,7 +652,7 @@ nav .nav-icon {
   padding: 1rem 2rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 1rem;
 }
 .services .cards-container .card-small-container .card {
   border-radius: 20px;
@@ -647,8 +672,8 @@ nav .nav-icon {
   font-size: 10px;
 }
 .services .cards-container .card-small-container .card .info .worker-credential .image {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -664,7 +689,8 @@ nav .nav-icon {
 .services .cards-container .card-small-container .card p {
   margin-top: 2rem;
   text-align: left;
-  font-size: 10px;
+  font-size: 1.2rem;
+  line-height: 1.5;
 }
 @media (max-width: 1200px) {
   .services .cards-container .card-small-container {
