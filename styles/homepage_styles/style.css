@@ -623,6 +623,10 @@ nav .nav-icon {
   color: #fff;
 }
 @media (max-width: 1220px) {
+  .estimate-section {
+    height: 40vh;
+    padding: 2rem 4rem;
+  }
   .estimate-section .estimate-container {
     flex-direction: column;
     gap: 0rem;
@@ -649,9 +653,27 @@ nav .nav-icon {
     width: max-content;
   }
 }
+@media (max-width: 900px) {
+  .estimate-section .estimate-container {
+    align-items: flex-start;
+  }
+  .estimate-section .estimate-container .estimate-text {
+    text-align: left;
+  }
+  .estimate-section .estimate-container .estimate-text h3 {
+    font-size: 1.5rem;
+  }
+  .estimate-section .estimate-container .estimate-form {
+    width: 100%;
+  }
+}
+@media (max-width: 420px) {
+  .estimate-section {
+    height: 30vh;
+  }
+}
 
 .services {
-  border: 1px solid red;
   font-family: "manrope", sans-serif;
   padding: 0rem 2rem;
   background-color: var(--black-clr);
@@ -734,6 +756,24 @@ nav .nav-icon {
     font-size: 1rem;
   }
 }
+@media (max-width: 450px) {
+  .services {
+    padding: 0;
+  }
+  .services .heading p {
+    margin-block: 1rem;
+  }
+  .services .heading h1 {
+    font-size: 2rem;
+  }
+  .services .cards-container {
+    padding: 0rem;
+  }
+  .services .cards-container .card-small-container {
+    width: 100%;
+    padding: 1rem;
+  }
+}
 
 .achievment_section {
   font-family: "manrope", sans-serif;
@@ -762,6 +802,7 @@ nav .nav-icon {
 }
 @media (max-width: 920px) {
   .achievment_section {
+    border: 1px solid green;
     grid-template-columns: repeat(3, 1fr);
   }
 }

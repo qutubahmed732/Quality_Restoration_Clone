@@ -673,7 +673,7 @@ nav {
   height: 20vh;
   font-family: "manrope", sans-serif;
   padding: 2rem 5rem;
-  background: var(--primary-gradient);   
+  background: var(--primary-gradient);
   position: relative;
   margin: 5rem auto;
 
@@ -695,10 +695,10 @@ nav {
     left: 0;
     z-index: 3;
     color: white;
-    
+
     border-radius: 1rem;
     color: #fff;
-    
+
     width: 100%;
     height: 100%;
     display: flex;
@@ -760,6 +760,9 @@ nav {
 
   @media (max-width: 1220px) {
 
+    height: 40vh;
+    padding: 2rem 4rem;
+
     .estimate-container {
       flex-direction: column;
       gap: 0rem;
@@ -771,6 +774,7 @@ nav {
 
       .estimate-text {
         text-align: center;
+
         h3 {
           font-size: 2rem;
         }
@@ -791,12 +795,34 @@ nav {
       }
     }
   }
+
+  @media(max-width: 900px) {
+
+    .estimate-container {
+      align-items: flex-start;
+
+      .estimate-text {
+        text-align: left;
+
+        h3 {
+          font-size: 1.5rem;
+        }
+      }
+
+      .estimate-form {
+        width: 100%;
+      }
+    }
+  }
+
+  @media(max-width: 420px) {
+    height: 30vh;
+  }
 }
 
 // <<<<<<<<<----------- SERVICES - SECTION --------------->>>>>>>>>>>
 
 .services {
-  border: 1px solid red;
   font-family: "manrope", sans-serif;
   padding: 0rem 2rem;
   background-color: var(--black-clr);
@@ -894,6 +920,28 @@ nav {
       }
     }
   }
+
+  @media(max-width: 450px) {
+    padding: 0;
+    .heading {
+      p {
+        margin-block: 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+    }
+
+    .cards-container {
+      padding: 0rem;
+
+      .card-small-container {
+        width: 100%;
+        padding: 1rem;
+      }
+    }
+  }
 }
 
 
@@ -931,6 +979,7 @@ nav {
   }
 
   @media(max-width: 920px) {
+    border: 1px solid green;
     grid-template-columns: repeat(3, 1fr);
   }
 
