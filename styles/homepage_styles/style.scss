@@ -537,7 +537,7 @@ nav {
   gap: 3rem;
   background-color: var(--black-clr);
   color: #fff;
-
+  
   .journey-content {
     height: 100%;
     display: flex;
@@ -607,9 +607,29 @@ nav {
       }
     }
   }
-
+  
   // Responsive styles
 
+  @media(max-width: 1365px) {
+    height: max-content;
+
+    .journey-content {
+      .text-content {
+        h2 {
+          font-size: 2rem;
+        }
+
+        p {
+          font-size: 2ch;
+        }
+      }
+
+      .image-content {
+        grid-column: 1/3;
+      }
+    }
+  }
+  
   @media(max-width: 1280px) {
     height: max-content;
 
@@ -622,7 +642,7 @@ nav {
         grid-column: 1/2;
 
         h2 {
-          font-size: 2rem !important;
+          font-size: 2rem;
         }
       }
 
@@ -634,7 +654,7 @@ nav {
 
   @media (max-width: 900px) {
     padding: 2rem 1rem;
-
+    
     .journey-content {
 
       .text-content,
