@@ -799,11 +799,16 @@ nav .nav-icon {
 }
 .achievment_section .achievment_section-card p {
   width: 95%;
+  text-wrap: balance;
+}
+@media (max-width: 1200px) {
+  .achievment_section {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (max-width: 920px) {
   .achievment_section {
-    border: 1px solid green;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media (max-width: 800px) {

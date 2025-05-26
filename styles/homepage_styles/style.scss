@@ -975,12 +975,16 @@ nav {
 
     p {
       width: 95%;
+      text-wrap: balance;
     }
   }
 
-  @media(max-width: 920px) {
-    border: 1px solid green;
+  @media(max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media(max-width: 920px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media(max-width: 800px) {
