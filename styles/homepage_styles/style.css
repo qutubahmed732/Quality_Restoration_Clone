@@ -40,9 +40,11 @@ body {
   object-fit: cover;
 }
 .container .center-text {
-  width: 100%;
+  width: 80%;
   position: absolute;
-  top: 10rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: var(--white-clr);
   text-align: center;
   display: flex;
@@ -94,8 +96,8 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
 }
 @media (max-width: 900px) {
-  .container .center-text {
-    top: 10rem;
+  .container {
+    height: 100vh;
   }
   .container .center-text h1 {
     font-size: 2.5rem;
@@ -132,6 +134,7 @@ body {
   background-color: var(--primary-clr);
   color: var(--white-clr);
   width: 100%;
+  height: 20vh;
   padding-block: 2rem;
   display: flex;
   align-items: center;
@@ -143,22 +146,23 @@ body {
   align-items: center;
   gap: 0.5rem;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: "manrope", sans-serif;
 }
 .schedule_button_div button {
   color: var(--primary-clr);
   background-color: var(--white-clr);
   border-radius: 9999px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   padding: 1rem 1.8rem;
   border: none;
 }
 @media (max-width: 900px) {
   .schedule_button_div {
+    height: 30vh;
     flex-direction: column;
     gap: 1rem;
-    padding-inline: 2rem;
+    padding-inline: 4rem;
   }
   .schedule_button_div span {
     text-wrap: balance;
@@ -173,11 +177,11 @@ body {
 }
 
 nav {
-  width: 100%;
-  padding-inline: 2rem;
+  width: calc(100% - 160px);
   position: absolute;
-  top: 6px;
-  margin-top: 1rem;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -229,6 +233,9 @@ nav .nav-icon {
   cursor: pointer;
 }
 @media (max-width: 900px) {
+  nav {
+    width: 90%;
+  }
   nav img {
     width: 100px;
   }
@@ -247,10 +254,11 @@ nav .nav-icon {
   background-color: black;
   outline: 1px solid var(--white-clr);
   color: var(--white-clr);
-  width: 20rem;
+  width: 50%;
   height: 100dvh;
   top: 0;
-  right: 0px;
+  right: 0;
+  transform: none;
 }
 .small-screen-navbar header {
   padding-block: 1rem;
@@ -293,6 +301,7 @@ nav .nav-icon {
 .roof-benefits-section {
   font-family: "manrope", sans-serif;
   background-color: var(--black-clr);
+  padding: 1rem 3rem 4rem 3rem;
 }
 .roof-benefits-section .heading {
   padding-block: 4rem;
@@ -308,10 +317,11 @@ nav .nav-icon {
 }
 .roof-benefits-section .heading h1 {
   color: var(--white-clr);
-  font-size: 2.5rem;
+  font-size: 5ch;
 }
 .roof-benefits-section .heading p:nth-of-type(2) {
   color: var(--grey-text-clr);
+  font-size: 2.2ch;
 }
 .roof-benefits-section .grid-card-container {
   color: var(--white-clr);
@@ -324,7 +334,7 @@ nav .nav-icon {
 .roof-benefits-section .grid-card-container .card {
   background-color: var(--muted);
   border-radius: 10px;
-  padding: 1rem 2rem 1rem 1rem;
+  padding: 30px;
   transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .roof-benefits-section .grid-card-container .card .head {
@@ -340,7 +350,9 @@ nav .nav-icon {
   display: block;
 }
 .roof-benefits-section .grid-card-container .card p {
-  font-size: 0.9rem;
+  font-size: 2ch;
+  font-weight: 400;
+  color: #E2DFD2;
 }
 .roof-benefits-section .grid-card-container .card:hover {
   background: linear-gradient(360deg, var(--primary-clr), var(--muted));
@@ -409,6 +421,7 @@ nav .nav-icon {
   .roof-benefits-section .grid-card-container .card p {
     font-size: 1.2rem;
     font-weight: 100;
+    text-wrap: balance;
   }
   .roof-benefits-section .bullets {
     padding-block: 2rem;
@@ -417,9 +430,9 @@ nav .nav-icon {
 }
 
 .journey-section {
-  height: 90vh;
+  height: 65vh;
   font-family: "manrope", sans-serif;
-  padding: 2rem 5rem;
+  padding: 2rem 7rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -431,7 +444,7 @@ nav .nav-icon {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 3rem;
 }
 .journey-section .journey-content .text-content {
   height: 100%;
@@ -451,11 +464,15 @@ nav .nav-icon {
   font-weight: 700;
   margin-bottom: 3rem;
 }
+.journey-section .journey-content .text-content p:nth-of-type(1) {
+  font-size: 1.1rem;
+}
 .journey-section .journey-content .text-content p {
-  font-size: 1.2rem;
+  font-size: 2.4ch;
   line-height: 1.6;
-  margin-bottom: 1rem;
-  color: #ccc;
+  margin-bottom: 2rem;
+  color: #a3a3a3;
+  text-wrap: balance;
 }
 .journey-section .journey-content .text-content .btn-outline {
   padding: 0.75rem 1.5rem;
@@ -527,14 +544,13 @@ nav .nav-icon {
 .estimate-section {
   border-radius: 16px;
   overflow: hidden;
-  width: 75%;
-  height: 30vh;
-  margin: 2rem auto;
-  width: 90%;
+  width: 85%;
+  height: 20vh;
   font-family: "manrope", sans-serif;
   padding: 2rem 5rem;
   background: var(--primary-gradient);
   position: relative;
+  margin: 5rem auto;
 }
 .estimate-section img {
   position: absolute;
@@ -566,19 +582,21 @@ nav .nav-icon {
   flex: 1;
 }
 .estimate-section .estimate-container .estimate-text h3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 .estimate-section .estimate-container .estimate-text p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: #e0e0e0;
 }
 .estimate-section .estimate-container .estimate-form {
+  width: 40%;
   padding: 0.3em;
   background-color: var(--white-clr);
   border-radius: 9999px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: nowrap;
   gap: 0.5rem;
 }
@@ -604,7 +622,7 @@ nav .nav-icon {
   background-color: #007bff;
   color: #fff;
 }
-@media (max-width: 968px) {
+@media (max-width: 1220px) {
   .estimate-section .estimate-container {
     flex-direction: column;
     gap: 0rem;
@@ -614,11 +632,14 @@ nav .nav-icon {
     width: 100%;
     height: 100%;
   }
+  .estimate-section .estimate-container .estimate-text {
+    text-align: center;
+  }
   .estimate-section .estimate-container .estimate-text h3 {
     font-size: 2rem;
   }
   .estimate-section .estimate-container .estimate-form {
-    width: 100%;
+    width: 50%;
   }
   .estimate-section .estimate-container .estimate-form input {
     flex: 1;
@@ -630,8 +651,9 @@ nav .nav-icon {
 }
 
 .services {
+  border: 1px solid red;
   font-family: "manrope", sans-serif;
-  padding: 2rem 2rem;
+  padding: 0rem 2rem;
   background-color: var(--black-clr);
   color: var(--white-clr);
   text-align: center;
