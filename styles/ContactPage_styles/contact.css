@@ -7,17 +7,23 @@
 :root {
   --white-clr: white;
   --black-clr: black;
+  --primary: 204 98% 38%;
   --primary-clr: #0274c0;
   --secondary: 224 52% 15%;
   --neon-blue: #00aeff;
   --muted: #1c1c1c;
   --grey-text-clr: hsl(0 0% 40%);
   --dark-primary-gradient: linear-gradient(180deg, rgba(2, 116, 192, 0), #0274c0), linear-gradient(0deg, rgba(2, 116, 192, 0.2), rgba(2, 116, 192, 0.2)), linear-gradient(0deg, #050505, #050505), linear-gradient(0deg, rgba(241, 241, 241, 0.5), rgba(241, 241, 241, 0.5));
+  --primary-gradient: linear-gradient(0deg, hsl(var(--primary)), hsl(var(--primary))), linear-gradient(270deg, rgba(2, 116, 192, 0) 0%, hsl(var(--primary)) 100%);
 }
 
 @font-face {
   font-family: "manrope";
   src: url("../../assets/Manrope/static/Manrope-Regular.ttf");
+}
+@font-face {
+  font-family: "manrope-light";
+  src: url("../../assets/Manrope/static/Manrope-Light.ttf");
 }
 body {
   font-family: "manrope", sans-serif;
@@ -78,51 +84,70 @@ body {
 }
 
 nav {
-  color: var(--white-clr);
-  width: 100%;
+  width: calc(100% - 160px);
   position: absolute;
-  top: 0;
+  z-index: 3;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 2rem;
 }
-nav .nav_links {
+nav a {
+  width: 7%;
+}
+nav div {
+  width: 90%;
   display: flex;
   align-items: center;
-  gap: 5rem;
+  justify-content: flex-end;
+  gap: 7rem;
 }
-nav .nav_links ul {
+nav div ul {
+  font-family: "manrope", sans-serif;
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
-nav .nav_links ul li a {
+nav div ul li a {
   text-decoration: none;
+  font-size: 0.999rem;
   color: var(--white-clr);
 }
-nav .nav_links ul li .bold {
+nav div ul li .bold {
   font-weight: 900;
   text-decoration: underline;
   text-underline-offset: 8px;
 }
-nav .nav_links span {
-  padding: 10px 2rem;
+nav div span {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
   background-color: var(--primary-clr);
   color: var(--white-clr);
-  border-radius: 9999px;
+  padding-block: 0.6rem;
+  padding-inline: 1rem;
+  border-radius: 20px;
   cursor: pointer;
-  transition: background 0.3s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
 }
-nav .nav_links span:hover {
+nav div span:hover {
   background-color: rgba(2, 116, 192, 0.8823529412);
 }
 nav .nav-icon {
   display: none;
+  cursor: pointer;
 }
 @media (max-width: 900px) {
-  nav .nav_links {
+  nav {
+    width: 90%;
+  }
+  nav img {
+    width: 100px;
+  }
+  nav > div {
     display: none;
   }
   nav .nav-icon {
@@ -137,10 +162,11 @@ nav .nav-icon {
   background-color: black;
   outline: 1px solid var(--white-clr);
   color: var(--white-clr);
-  width: 20rem;
+  width: 50%;
   height: 100dvh;
   top: 0;
-  right: 0px;
+  right: 0;
+  transform: none;
 }
 .small-screen-navbar header {
   padding-block: 1rem;
@@ -255,7 +281,7 @@ nav .nav-icon {
   justify-content: flex-start;
 }
 .contact_section form #checkbox_label input {
-  width: 30px;
+  width: 50px;
   border: 1px solid var(--muted);
 }
 .contact_section form #checkbox_label p {
@@ -283,7 +309,7 @@ nav .nav-icon {
 @media (max-width: 900px) {
   .contact_section {
     grid-template-columns: 1fr;
-    grid-template-rows: 50vh 100vh;
+    grid-template-rows: 50vh 120vh;
     gap: 2rem;
     margin-bottom: 2rem;
   }
@@ -296,55 +322,67 @@ nav .nav-icon {
     gap: 1.2rem;
   }
 }
-@media (max-width: 500px) {
-  .contact_section {
-    height: auto;
-    grid-template-rows: 50vh 100vh;
-  }
-}
 
 .estimate-section {
+  border-radius: 16px;
+  overflow: hidden;
+  width: 85%;
+  height: 20vh;
   font-family: "manrope", sans-serif;
-  background-color: var(--black-clr);
   padding: 2rem 5rem;
+  background: var(--primary-gradient);
+  position: relative;
+  margin: 5rem auto;
+}
+.estimate-section img {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
 }
 .estimate-section .estimate-container {
+  padding-inline: 5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  color: white;
+  border-radius: 1rem;
+  color: #fff;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   gap: 1rem;
-  padding: 2rem;
-  border-radius: 1rem;
-  color: #fff;
-  background-image: url("../../assets/workpage_images/input-image.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-color: rgba(2, 116, 192, 0.5568627451);
-  background-blend-mode: multiply;
 }
-.estimate-section .estimate-text {
+.estimate-section .estimate-container .estimate-text {
   flex: 1;
 }
-.estimate-section .estimate-text h3 {
-  font-size: 1.5rem;
+.estimate-section .estimate-container .estimate-text h3 {
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
-.estimate-section .estimate-text p {
-  font-size: 1rem;
+.estimate-section .estimate-container .estimate-text p {
+  font-size: 1.5rem;
   color: #e0e0e0;
 }
-.estimate-section .estimate-form {
+.estimate-section .estimate-container .estimate-form {
+  width: 40%;
   padding: 0.3em;
   background-color: var(--white-clr);
   border-radius: 9999px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: nowrap;
   gap: 0.5rem;
 }
-.estimate-section .estimate-form input {
+.estimate-section .estimate-container .estimate-form input {
   padding: 0.75rem 1rem;
   border-radius: 999px;
   border: none;
@@ -352,7 +390,7 @@ nav .nav-icon {
   width: 200px;
   font-size: 0.95rem;
 }
-.estimate-section .estimate-form button {
+.estimate-section .estimate-container .estimate-form button {
   padding: 0.75rem 1.5rem;
   border-radius: 999px;
   border: none;
@@ -362,29 +400,61 @@ nav .nav-icon {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.estimate-section .estimate-form button:hover {
+.estimate-section .estimate-container .estimate-form button:hover {
   background-color: #007bff;
   color: #fff;
 }
-@media (max-width: 768px) {
+@media (max-width: 1220px) {
   .estimate-section {
-    padding: 1rem 1rem;
+    height: 40vh;
+    padding: 2rem 4rem;
   }
   .estimate-section .estimate-container {
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding: 5rem 2rem;
-  }
-  .estimate-section .estimate-form {
+    gap: 0rem;
+    padding: 2rem;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
   }
-  .estimate-section .estimate-form input {
+  .estimate-section .estimate-container .estimate-text {
+    text-align: center;
+  }
+  .estimate-section .estimate-container .estimate-text h3 {
+    font-size: 2rem;
+  }
+  .estimate-section .estimate-container .estimate-form {
+    width: 50%;
+  }
+  .estimate-section .estimate-container .estimate-form input {
     flex: 1;
     width: 100%;
   }
-  .estimate-section .estimate-form button {
-    width: auto;
+  .estimate-section .estimate-container .estimate-form button {
+    width: max-content;
+  }
+}
+@media (max-width: 900px) {
+  .estimate-section {
+    margin: 2rem auto;
+  }
+  .estimate-section .estimate-container {
+    align-items: flex-start;
+  }
+  .estimate-section .estimate-container .estimate-text {
+    text-align: left;
+  }
+  .estimate-section .estimate-container .estimate-text h3 {
+    font-size: 1.5rem;
+  }
+  .estimate-section .estimate-container .estimate-form {
+    width: 100%;
+  }
+}
+@media (max-width: 420px) {
+  .estimate-section {
+    height: 30vh;
   }
 }
 
@@ -393,7 +463,6 @@ footer {
   background: var(--dark-primary-gradient);
   color: var(--white-clr);
   padding: 2rem 4rem 1rem 4rem;
-  margin-top: 2rem;
   display: flex;
   flex-direction: column;
 }
@@ -410,6 +479,10 @@ footer .container2 .footer__left {
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
+}
+footer .container2 .footer__left p {
+  font-family: "manrope-light", sans-serif;
+  font-size: 14px;
 }
 footer .container2 .footer__left button {
   border: 1px solid white;
@@ -448,6 +521,7 @@ footer .container2 .footer__right {
   gap: 3rem;
 }
 footer .container2 .footer__right .small_container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -460,12 +534,25 @@ footer .container2 .footer__right .small_container .location {
   display: flex;
   align-items: center;
   gap: 1rem;
+  width: 100%;
 }
-footer .container2 .footer__right .small_container .call span:nth-of-type(2),
-footer .container2 .footer__right .small_container .email span:nth-of-type(2),
-footer .container2 .footer__right .small_container .location span:nth-of-type(2) {
+footer .container2 .footer__right .small_container .call .icon,
+footer .container2 .footer__right .small_container .email .icon,
+footer .container2 .footer__right .small_container .location .icon {
+  flex: 10%;
+  text-align: center;
+}
+footer .container2 .footer__right .small_container .call .info,
+footer .container2 .footer__right .small_container .email .info,
+footer .container2 .footer__right .small_container .location .info {
+  flex: 90%;
   display: flex;
   flex-direction: column;
+}
+footer .container2 .footer__right .small_container .call .info .small_heading,
+footer .container2 .footer__right .small_container .email .info .small_heading,
+footer .container2 .footer__right .small_container .location .info .small_heading {
+  font-size: 13px;
 }
 footer .text_container {
   padding: 2rem 1rem;
@@ -482,19 +569,16 @@ footer .text_container p:nth-of-type(2) a {
   color: var(--white-clr);
 }
 
-.small_heading {
-  font-size: 13px;
-}
-
 @media (max-width: 900px) {
   footer {
-    flex-direction: column;
-    align-items: center;
+    padding: 1rem;
     gap: 2rem;
   }
   footer .container2 {
+    padding: 2rem 0;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
   }
   footer .container2 .footer__left {
     text-align: center;
@@ -508,14 +592,18 @@ footer .text_container p:nth-of-type(2) a {
     border-bottom: 1px solid #050505;
     width: 100%;
   }
+  footer .container2 .footer__center .small_container,
+  footer .container2 .footer__center .small_container .head {
+    text-align: center;
+    font-size: 1.2rem;
+  }
   footer .container2 .footer__right {
     width: 100%;
     padding: 2rem 0;
-    text-align: center;
     align-items: center;
   }
-  footer .container2 .footer__right span span {
-    text-align: left;
+  footer .container2 .footer__right .small_container {
+    width: auto;
   }
   footer .text_container {
     flex-direction: column-reverse;

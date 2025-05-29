@@ -27,20 +27,17 @@
 <!-- <<<<<<<<<<<< NAVBAR - SECTION  >>>>>>>>>>>> -->
 
   <nav>
-    <a class="logo" href="index.html">
-      <img src="assets/aboutPage_images/logo.webp" width="100" alt="nav logo" class="js-logo-work" />
+    <a href="index.html">
+      <img src="assets/images/logo.webp" loading="lazy" width="100" alt="logo" class="logo js-logo-home" />
     </a>
-
-    <div class="nav_links">
+    <div>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="work.html" class="bold">Our Work</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="work.html">Our Work</a></li>
+        <li><a href="contact.html" class="bold">Contact Us</a></li>
       </ul>
-      <span>
-        <i class="fa-solid fa-phone"></i> 330-636-7808
-      </span>
+      <span><i class="fa-solid fa-phone"></i> 330-636-7808</span>
     </div>
     <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon js-nav-icon" width="40" height="30" viewBox="0 0 22 16"
       fill="none">
@@ -109,17 +106,18 @@
   <!-- <<<<<<<<<<<< section of input field >>>>>>>>>>>> -->
 
   <section class="estimate-section">
-    <div class="estimate-container">
-      <div class="estimate-text">
-        <h3>Get Your Free Estimate</h3>
-        <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <div class="estimate-container">
+        <div class="estimate-text">
+          <h3>Get Your Free Estimate</h3>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </div>
+        <form class="estimate-form">
+          <input type="text" placeholder="Enter Zip Code" />
+          <button type="submit">Get Estimate</button>
+        </form>
       </div>
-      <form class="estimate-form">
-        <input type="text" placeholder="Enter Zip Code" />
-        <button type="submit">Get Estimate</button>
-      </form>
-    </div>
-  </section>
+      <img src="assets/images/input-image.jpg" alt="">
+    </section>
 
 
   <!-- ---- FOOTER ---- -->
@@ -155,8 +153,8 @@
 
         <div class="small_container">
           <div class="call">
-            <span><i class="fa-solid fa-phone fa-2x"></i></span>
-            <span>
+            <span class="icon"><i class="fa-solid fa-phone fa-2x"></i></span>
+            <span class="info">
               <span class="small_heading">Give us a call</span>
               <span>(000) 666 555 444</span>
             </span>
@@ -164,8 +162,8 @@
 
 
           <div class="email">
-            <span><i class="fa-solid fa-envelope fa-2x"></i></span>
-            <span>
+            <span class="icon"><i class="fa-solid fa-envelope fa-2x"></i></span>
+            <span class="info">
               <span class="small_heading">Send us an email</span>
               <span>info@qualityrestoration.com</span>
             </span>
@@ -173,8 +171,8 @@
 
 
           <div class="location">
-            <span><i class="fa-solid fa-location-dot fa-2x"></i></span>
-            <span>
+            <span class="icon"><i class="fa-solid fa-location-dot fa-2x"></i></span>
+            <span class="info">
               <span class="small_heading">Visit us in person</span>
               <span>OurStreet 1257/18, OurCity</span>
             </span>
